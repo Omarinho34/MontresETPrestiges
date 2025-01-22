@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MontresETPrestiges.FicheProduitPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="FicheProduitPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <Label
+                Margin="0,50,0,30"
+                FontSize="38"
+                HorizontalOptions="Center"
+                Text="{Binding AffichageIdNom}" />
+
+            <Label
+                FontSize="28"
+                HorizontalOptions="Center"
+                Text="{Binding Description, StringFormat='Description : {0}'}" />
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label
+                    Margin="30,50,50,100"
+                    FontSize="26"
+                    HorizontalOptions="Center"
+                    Text="{Binding Prix, StringFormat='Prix : {0:C}'}"
+                    TextColor="Green" />
+
+                <Label
+                    Margin="30,50,50,30"
+                    FontSize="26"
+                    HorizontalOptions="Center"
+                    Text="{Binding Quantite, StringFormat='Quantité : {0}'}"
+                    TextColor="Gray" />
+
+                <Label
+                    Margin="30,50,50,30"
+                    FontSize="26"
+                    HorizontalOptions="Center"
+                    Text="{Binding SeuilAlerte, StringFormat='Seuil Minimum : {0}'}"
+                    TextColor="Gray" />
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Center" WidthRequest="500">
+                <Label
+                    Margin="10,10,10,10"
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    Text="Entrer le seuil d'alerte : " />
+                <Entry
+                    x:Name="SeuilAlerteEntry"
+                    FontAttributes="Italic"
+                    HorizontalTextAlignment="Center"
+                    Keyboard="Numeric"
+                    Placeholder="{Binding SeuilAlerte}" />
+            </HorizontalStackLayout>
+
+            <Button
+                Margin="0,20,0,0"
+                Clicked="OnEnregistrerClicked"
+                Text="Enregistrer"
+                WidthRequest="250" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

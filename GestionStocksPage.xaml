@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MontresETPrestiges.GestionStocksPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Gestion de stock">
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <!--  Picker pour sélectionner la catégorie  -->
+            <Picker
+                x:Name="CategoriePicker"
+                Title="Filtrer par genre"
+                Margin="10"
+                HorizontalOptions="Center"
+                SelectedIndexChanged="OnCategoriePickerSelectedIndexChanged"
+                WidthRequest="500">
+                <Picker.Items>
+                    <x:String>Toutes</x:String>
+                    <x:String>Homme</x:String>
+                    <x:String>Femme</x:String>
+                    <x:String>Mixte</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!--  Boutons pour trier les éléments  -->
+            <HorizontalStackLayout
+                Margin="10"
+                HorizontalOptions="Center"
+                WidthRequest="490">
+                <Button
+                    Margin="10,10"
+                    Clicked="OnTrierCroissantClicked"
+                    FontSize="18"
+                    Text="Trier Croissant"
+                    WidthRequest="200" />
+                <Button
+                    Margin="10,10"
+                    Clicked="OnTrierDecroissantClicked"
+                    FontSize="18"
+                    Text="Trier Décroissant"
+                    WidthRequest="200" />
+            </HorizontalStackLayout>
+
+            <Button
+                Margin="10,10"
+                Clicked="OnMontreReaproviser"
+                FontSize="18"
+                Text="Montres à réaproviser"
+                WidthRequest="230" />
+
+            <CollectionView x:Name="MontresCollection">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                            Margin="10,100,10,40"
+                            Padding="10"
+                            CornerRadius="5"
+                            HasShadow="True"
+                            WidthRequest="500">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnMontreTapped" />
+                            </Frame.GestureRecognizers>
+                            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="18"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding AffichageIdNom}" />
+                                <Label
+                                    FontSize="14"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding Description}"
+                                    TextColor="Gray" />
+                                <Label
+                                    FontSize="16"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding Prix, StringFormat='Prix : {0:C}'}"
+                                    TextColor="Green" />
+                                <Label
+                                    FontSize="16"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding Quantite, StringFormat='Quantite : {0}'}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
