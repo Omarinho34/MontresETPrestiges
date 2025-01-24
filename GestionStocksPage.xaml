@@ -32,13 +32,13 @@
                     Margin="10,10"
                     Clicked="OnTrierCroissantClicked"
                     FontSize="18"
-                    Text="Trier Croissant"
+                    Text="Seuil croissant"
                     WidthRequest="200" />
                 <Button
                     Margin="10,10"
                     Clicked="OnTrierDecroissantClicked"
                     FontSize="18"
-                    Text="Trier Décroissant"
+                    Text="Seuil décroissant"
                     WidthRequest="200" />
             </HorizontalStackLayout>
 
@@ -75,7 +75,7 @@
                                 <Label
                                     FontSize="16"
                                     HorizontalOptions="Center"
-                                    Text="{Binding Prix, StringFormat='Prix : {0:C}'}"
+                                    Text="{Binding Prix, StringFormat='{0}€'}"
                                     TextColor="Green" />
                                 <Label
                                     FontSize="16"

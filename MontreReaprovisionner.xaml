@@ -45,8 +45,7 @@
                     Grid.Row="0"
                     Grid.Column="4"
                     FontAttributes="Bold"
-                    Text="Seuil d'Alerte"
-                    TextColor="Red" />
+                    Text="Seuil d'Alerte" />
 
             </Grid>
 
@@ -78,7 +77,7 @@
                                 <Label
                                     Grid.Row="0"
                                     Grid.Column="2"
-                                    Text="{Binding Prix}"
+                                    Text="{Binding Prix, StringFormat='{0}€'}"
                                     TextColor="Green" />
                                 <Label
                                     Grid.Row="0"
@@ -88,8 +87,9 @@
                                 <Label
                                     Grid.Row="0"
                                     Grid.Column="4"
-                                    Text="{Binding SeuilAlerte}" />
-
+                                    Text="{Binding SeuilAlerte}" 
+                                    TextColor="Red"/>
+                                
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

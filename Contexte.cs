@@ -114,5 +114,25 @@ namespace MontresETPrestiges
             }
         }
 
+        public static async Task<List<Status>> GetLesStatus(int IdCommande)
+        {
+            string urlAPI = $"{urlServiceWeb}/getStatus/{IdCommande}";
+
+            HttpResponseMessage resultReq = await Contexte.httpClient.GetAsync(new Uri(urlAPI));
+            if (resultReq.IsSuccessStatusCode)
+            {
+                string content = await resultReq.Content.ReadAsStringAsync();
+
+                JsonSerializerOptions optionsJson = new JsonSerializerOptions();
+                optionsJson.PropertyNameCaseInsensitive = true;
+                List<Status>? lesStatus = JsonSerializer.Deserialize<List<Status>>(content, optionsJson);
+
+                return lesStatus;
+            }
+            else
+            {
+                throw new Exception("Erreur lors du chargement des status" + resultReq.StatusCode.ToString());
+            }
+        }
     }
 }

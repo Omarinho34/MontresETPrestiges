@@ -24,20 +24,12 @@ namespace MontresETPrestiges
         public int? SeuilAlerte {  get; set; }
         public string AffichageIdNom => $"#{Id} {Nom}";
     }
+    public class Status
+    {
+        public int Id_commande { get; set; }
+        public int Id_status { get; set; }
+        public string? Libelle { get; set; }
+        public DateTime Date_status { get; set; }
+    }
 
-    //public class Utilisateur
-    //{
-    //    public int Id { get; set; }
-    //    public string? Email { get; set; }
-    //    public string? Telephone { get; set; }
-    //    public string? Password { get; set; }
-    //    public int Role_id { get; set; }
-    //    public Role? Role { get; set; }
-    //}
-
-    //public class Role
-    //{
-    //    public int Id { get; set; }
-    //    public string? Libelle { get; set; }
-    //}
 }
